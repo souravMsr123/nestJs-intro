@@ -41,7 +41,9 @@ export class ProductsController {
 
         await this.productService.deleteProduct(id);
 
-        return null;
+        return {
+            message: "Product deleted successfuly"
+        };
 
     }
 
