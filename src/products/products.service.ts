@@ -18,11 +18,12 @@ export class ProductsService {
      * @param desc 
      * @param price 
      */
-    async insertProduct(title: string, desc: string, price: number) {
+    async insertProduct(title: string, desc: string, price: number, posted_by: string) {
         const newProduct = new this.productModel({
             title,
             desc,
-            price
+            price,
+            posted_by
         });
 
         const result = await newProduct.save();
@@ -41,7 +42,8 @@ export class ProductsService {
             id: prod.id,
             title: prod.title,
             desc: prod.desc,
-            price: prod.price
+            price: prod.price,
+            posted_by: prod.posted_by
         }));
     }
 

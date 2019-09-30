@@ -12,6 +12,9 @@ export const ProductSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true
+    },
+    posted_by: {
+        type: String
     }
 },
     {
@@ -24,6 +27,7 @@ export interface Product extends mongoose.Document {
     title: string;
     desc: string;
     price: number;
+    posted_by: string;
 
 
 }
