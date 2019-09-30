@@ -2,7 +2,7 @@ import { Controller, Get, Post, Header, Body, Param, Patch, Delete } from '@nest
 import { ProductsService } from './products.service';
 
 
-@Controller()
+@Controller('products')
 export class ProductsController {
     constructor(private readonly productService: ProductsService) { }
 
