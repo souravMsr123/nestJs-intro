@@ -1,5 +1,10 @@
-import { Controller, Get, Post, Header, Body, Param, Patch, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Header, Body, Param, Patch, Delete, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { ProductsService } from './products.service';
+
+import { FileInterceptor } from '@nestjs/platform-express'
+
+
+import * as fs from 'fs';
 
 
 @Controller('products')
@@ -45,6 +50,21 @@ export class ProductsController {
             message: "Product deleted successfuly"
         };
 
+    }
+
+
+
+    @Post('upload')
+    @UseInterceptors(FileInterceptor('file'))
+    uploadFile(@UploadedFile() file) {
+
+
+
+        console.log(file);
+
+        return {
+            status: "ok"
+        }
     }
 
 

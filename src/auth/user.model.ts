@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose';
+import * as paginate from 'mongoose-paginate';
 
 export const UserSchema = new mongoose.Schema({
     name: {
@@ -23,6 +24,9 @@ export const UserSchema = new mongoose.Schema({
         timestamps: true
     }
 )
+
+
+UserSchema.plugin(paginate)
 
 export interface User extends mongoose.Document {
     id: string;

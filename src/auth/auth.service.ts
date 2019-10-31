@@ -28,15 +28,9 @@ export class AuthService {
                 };
             } else {
                 throw new NotFoundException('User not found');
-
-
             }
 
         });
-
-
-
-
     }
 
     async register(user: User): Promise<any> {

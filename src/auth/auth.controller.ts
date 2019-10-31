@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get } from "@nestjs/common";
+import { Controller, Post, Body, Get, UseInterceptors, UploadedFile, NestInterceptor } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { User } from "./user.model";
 
@@ -23,5 +23,12 @@ export class AuthController {
     @Get()
     getHi(): string {
         return 'HI';
+    }
+
+
+    @Post('upload')
+    @UseInterceptors()
+    uploadFile(@UploadedFile() file) {
+        console.log(file);
     }
 }
